@@ -1,10 +1,9 @@
 import styles from "./QuoteView.module.css";
-import { useState } from "react";
-import { Courgette } from '@next/font/google'
 import fonts from "../Fonts";
+import { useState, useEffect, useRef } from "react";
 
 
-export default function QuoteView({ mode, setMode, id, quote, viewStyle, className }) {
+export default function QuoteView({ mode, setMode, id, quote, viewStyle, className, isReloaded, setIsReloaded }) {
   const {
     image,
     contentFont,
@@ -16,7 +15,6 @@ export default function QuoteView({ mode, setMode, id, quote, viewStyle, classNa
     bgColor
   } = viewStyle;
 
-  // console.log("Quoteview Content Font", contentFont);
 
   function handleClickHideMode(){
     if(mode != 'preview'){
@@ -24,6 +22,15 @@ export default function QuoteView({ mode, setMode, id, quote, viewStyle, classNa
     }
   }
 
+  // useEffect(()=> {
+  //   if(!isReloaded){
+  //     setIsReloaded(true);
+  //     console.log('coucou je suis passé par ici');
+  //     window.location.reload();
+  //   }
+  // }, [isReloaded]);
+
+  
 
   return (
     <article
@@ -37,8 +44,10 @@ export default function QuoteView({ mode, setMode, id, quote, viewStyle, classNa
     >
       <blockquote className={styles.blockquote}>
         <p
-          className={`${styles.quoteContent} ${fonts[contentFont].className}`}
+          // className={`${styles.quoteContent} ${fonts[contentFont].className}`}
+          className={`${styles.quoteContent}`}
           style={{
+            fontFamily: fonts[contentFont].style.fontFamily,
             fontSize: contentFontSize,
             color: fgColor
           }}

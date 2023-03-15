@@ -36,6 +36,8 @@ const dummyStyle = {
 // main function
 
 export default function QuoteEditor({ backgrounds, userId }) {
+  const [isReloaded, setIsReloaded] = useState(false)
+
   const [quote, setQuote] = useState({
     content: "",
     author: "",
@@ -297,6 +299,8 @@ export default function QuoteEditor({ backgrounds, userId }) {
         quote={quote}
         viewStyle={viewstyle}
         className={styles.quoteView}
+        isReloaded={isReloaded}
+        setIsReloaded={setIsReloaded}
       />
       {editor}
       <Navbar page={"editor"} />
