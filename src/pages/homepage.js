@@ -1,4 +1,4 @@
-import { User } from 'db/sequelize';
+// import { User } from 'db/sequelize';
 import { withSessionSsr } from "@/session/withSession";
 import Homepage from '../components/Homepage/Homepage';
 
@@ -10,13 +10,16 @@ export default function(id, avatar) {
 export const getServerSideProps = withSessionSsr(
   async function getServerSideProps({ req }) {
     const sessionUser = req.session.user;
-
-    const user = await User.findByPk(sessionUser.id);
-    const id = user.id;
-    const avatar = user.avatar;
-    console.log('Utilisateur:', avatar.toJSON())
+    const id = sessionUser.id;
+    // const user = await User.findByPk(sessionUser.id);
+    // const id = user.id;
+    // const avatar = user.avatar;
+    // console.log('Utilisateur:', avatar.toJSON())
     return {
-      props: { id, avatar: avatar.toJSON()},
+      props: { 
+        id, 
+        // avatar: avatar.toJSON()
+      },
     };
   }
 )

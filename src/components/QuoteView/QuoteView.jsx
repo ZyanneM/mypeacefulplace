@@ -1,5 +1,7 @@
 import styles from "./QuoteView.module.css";
 import fonts from "../Fonts";
+import DOMPurify from "dompurify";
+import parse from "html-react-parser";
 
 
 export default function QuoteView({ mode, setMode, id, quote, viewStyle, className, isReloaded, setIsReloaded }) {
@@ -21,6 +23,13 @@ export default function QuoteView({ mode, setMode, id, quote, viewStyle, classNa
     }
   }
 
+  function sanitizeFunction(quoteString){
+  const sanitizedQuote = DOMPurify.sanitize(quoteString);
+  console.log(sanitizedQuote);
+  const quoteElement = parse(sanitizedQuote);
+  return quoteElement
+  }
+
   return (
     <article
       id={id}
@@ -32,7 +41,7 @@ export default function QuoteView({ mode, setMode, id, quote, viewStyle, classNa
       onClick={handleClickHideMode}
     >
       <blockquote className={styles.blockquote}>
-        <p
+        <p 
           className={`${styles.quoteContent} ${fonts[contentFont].className}`}
           style={{
             fontSize: contentFontSize,
@@ -40,7 +49,7 @@ export default function QuoteView({ mode, setMode, id, quote, viewStyle, classNa
           }}
           id="quote-element"
         >
-          {quote.content}
+          {sanitizeFunction(quote.content)}
         </p>
         <p
         id="author-element"
