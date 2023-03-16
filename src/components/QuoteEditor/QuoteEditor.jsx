@@ -303,7 +303,7 @@ export default function QuoteEditor({ backgrounds, userId }) {
         setIsReloaded={setIsReloaded}
       />
       {editor}
-      <Navbar page={"editor"} />
+      <Navbar />
     </>
   );
 }

@@ -64,8 +64,9 @@ export default function Homepage(props) {
       <div
         className={styles.background}
         style={{
-          backgroundImage: `url(${path})`
+          backgroundImage: `url(${path})`,
         }}
+<<<<<<< HEAD
       >
         <Avatar setAvatarEdition={setAvatarEdition}/>
         {avatarEdition && 
@@ -85,6 +86,10 @@ export default function Homepage(props) {
         }
       </div>
       <Navbar page={"homepage"} />
+=======
+      ></div>
+      <Navbar />
+>>>>>>> julien/main
     </>
   );
 }
