@@ -1,4 +1,4 @@
-import "./MoodSelector.css";
+import "./MoodSelector.module.css";
 
 export default function MoodSelector() {
   return (

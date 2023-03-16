@@ -10,10 +10,6 @@ export default function SignForm() {
   const router = useRouter();
   const  {infoMessage, setInfoMessage} = useContext(MessageData)
 
-  if(infoMessage != undefined){
-    setTimeout(()=>{setInfoMessage()}, 2000)
-  }
-
   const handleSubmit = async (userInput) => {
     
 

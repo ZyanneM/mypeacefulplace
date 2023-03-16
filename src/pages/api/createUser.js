@@ -4,6 +4,13 @@ const bcrypt = require("bcrypt");
 export default async function signUser(req, res) {
   try {
     const { name, email, password } = JSON.parse(req.body);
+
+    const alreadyExist = await User.findOne({where: {email: email}})
+    if(alreadyExist){
+      const message = "Un compte existe déjà avec cette adresse mail."
+      res.status(409).json({message})
+    }
+
     const hashPassword = await bcrypt.hash(password, 10);
 
     const user = await User.build({

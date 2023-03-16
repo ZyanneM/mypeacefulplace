@@ -8,3 +8,110 @@
   background-position: center;
   z-index: -1;
 }
+
+/*form editing avatar*/
+.formAvatar {
+  margin-left: 50vw;
+  transform: translateX(-50%);
+  background-color: rgba(255, 255, 255, 0.75);
+  box-shadow: 0 10px 60px rgb(218, 229, 255);
+  border: 1px solid rgb(159, 159, 160);
+  border-radius: 20px;
+  padding: 2rem .7rem .7rem .7rem;
+  text-align: center;
+  font-size: 1.125rem;
+  max-width: 320px;
+  margin-top: 30vh;
+  animation-name: falling;
+  animation-duration: 1s;
+}
+
+@keyframes falling {
+  from {margin-top: -300px;}
+  to {margin-top: 30vh;}  
+}
+
+.formAvatar > span{
+  color: #000000;
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.formAvatar p{
+  margin-top: 10px;
+  font-size: 0.9375rem;
+  color: rgb(105, 105, 105);
+}
+
+.dropContainer {
+  background-color: #fff;
+  position: relative;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  margin-top: 2.1875rem;
+  border-radius: 10px;
+  border: 2px dashed rgb(171, 202, 255);
+  color: #444;
+  cursor: pointer;
+}
+
+.dropContainer:hover {
+  background: rgba(169, 35, 96, 0.4);
+}
+
+.dropContainer > span {
+  color: #444;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  transition: color .2s ease-in-out;
+}
+
+.dropContainer:hover > span {
+  color: #000;
+}
+
+.avatarFileInput {
+  width: 350px;
+  max-width: 100%;
+  color: #444;
+  padding: 2px;
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid rgba(8, 8, 8, 0.288);
+}
+
+.avatarFileInput::file-selector-button {
+  margin-right: 20px;
+  border: none;
+  background: #a92360;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  transition: background .2s ease-in-out;
+}
+
+.avatarFileInput::file-selector-button:hover {
+  background: #761843;
+}
+
+.submitAvatar{
+  font-size: 18px;
+  margin-top: 10px;
+  padding: 10px 20px;
+  color: #fff;
+  background: #a92360;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+}
+
+.errorText {
+  font-family: 'Lato', sans-serif;
+  color: red;
+}
