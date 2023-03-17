@@ -13,6 +13,7 @@ import { ColorEditor, FontEditor, ImageEditor } from "./Editors";
 import { MessageData } from "@/context/MsgContext";
 
 import styles from "./QuoteEditor.module.css";
+
 // console.log(fonts);
 
 // dummy data for testing

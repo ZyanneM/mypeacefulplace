@@ -1,10 +1,12 @@
 import styles from "./QuoteView.module.css";
+import { useState, useEffect } from "react";
 import fonts from "../Fonts";
-import DOMPurify from "dompurify";
+import DOMPurify from "isomorphic-dompurify";
 import parse from "html-react-parser";
 
 
 export default function QuoteView({ mode, setMode, id, quote, viewStyle, className, isReloaded, setIsReloaded }) {
+
   const {
     image,
     contentFont,
