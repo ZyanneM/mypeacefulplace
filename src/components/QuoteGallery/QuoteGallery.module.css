@@ -24,8 +24,8 @@
   padding: 2em;
   display: grid;
   grid-template-columns: repeat(2, minmax(150px, 1fr));
-  grid-template-rows: repeat(autofill,100px);
-  gap: 1em 1em;
+  grid-template-rows: repeat(autofill,150px);
+  gap: 1.5em 2em;
   overflow: scroll;
   grid-auto-flow: row;
   align-items: start;
@@ -45,6 +45,7 @@
 .portrait{
   grid-row: span 4;
   display: inline-block;
+  width: 200px;
   max-height: 320px;
 }
 
@@ -53,7 +54,8 @@
   padding: 0;
   list-style: none;
   display: flex;
-  align-items: stretch;
+  align-items:center;
+  justify-content: center;
   border-radius: 30px;
   width: 100%;
   height: auto;
