@@ -19,8 +19,8 @@ export default function QuoteGallery({ quoteCards }) {
     var newwidth = event.target.naturalWidth;
     var newheight = event.target.naturalHeight;
     console.log(`Image ${quoteCard.id} : width = ${newwidth}, height = ${newheight}`);
-    if(newwidth>newheight){
-      parentImg.classList.add(`${styles.landscape}`);
+    if(newheight - newwidth >= 100 ){
+      parentImg.classList.add(`${styles.portrait}`);
     } else {
       ''
     }
