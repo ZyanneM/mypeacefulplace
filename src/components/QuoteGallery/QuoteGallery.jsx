@@ -9,21 +9,18 @@ import { useEffect, useState } from "react";
 export default function QuoteGallery({ quoteCards }) {
 
   const [isImageLoaded, setIsImageLoaded] = useState(false);
-
-  const [width, setWidth] = useState(null);
-  const [height, setHeight] = useState(null);
   
-  const compteur = 0;
   const imgElements = quoteCards.map((quoteCard) => {
 
 
  async function handleImageLoad(event) {
   const imgDiv = event.target;
+  const parentImg = imgDiv.parentElement;
     var newwidth = event.target.naturalWidth;
     var newheight = event.target.naturalHeight;
     console.log(`Image ${quoteCard.id} : width = ${newwidth}, height = ${newheight}`);
     if(newwidth>newheight){
-      imgDiv.classList.add(`${styles.landscape}`);
+      parentImg.classList.add(`${styles.landscape}`);
     } else {
       ''
     }
