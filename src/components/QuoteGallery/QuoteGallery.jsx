@@ -2,7 +2,9 @@ import LoginBtn from "../LoginBtn/LoginBtn";
 import Navbar from "../Navbar/Navbar";
 import styles from "./QuoteGallery.module.css";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+
 
 export default function QuoteGallery({ quoteCards }) {
 
@@ -10,23 +12,29 @@ export default function QuoteGallery({ quoteCards }) {
 
   const [width, setWidth] = useState(null);
   const [height, setHeight] = useState(null);
-
+  
+  const compteur = 0;
   const imgElements = quoteCards.map((quoteCard) => {
 
 
-  function handleImageLoad(event) {
-    var width = event.target.naturalWidth;
-    var height = event.target.naturalHeight;
-    console.log(`Image ${quoteCard.id} : width = ${width}, height = ${height}`);
-    setWidth(width);
-    setHeight(height);
-    console.log(width);
+ async function handleImageLoad(event) {
+  const imgDiv = event.target;
+    var newwidth = event.target.naturalWidth;
+    var newheight = event.target.naturalHeight;
+    console.log(`Image ${quoteCard.id} : width = ${newwidth}, height = ${newheight}`);
+    if(newwidth>newheight){
+      imgDiv.classList.add(`${styles.landscape}`);
+    } else {
+      ''
+    }
     setIsImageLoaded(true);
   }
+ 
     return (
       <div className={styles.quoteGalleryLi}>
         <img
-          className={`${styles.quoteView} ${width>height ? styles.landscape : ''}`}
+          className={`${styles.quoteView}`}
+          id={quoteCard.id}
           key={quoteCard.id}
           src={`quoteviews/${quoteCard.image}`}
           alt={quoteCard.image}
